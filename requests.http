@@ -1,0 +1,32 @@
+### Variables globales
+@baseUrl = http://localhost:8080
+
+### BUSQUEDA Y CACHE
+
+# @name BuscarItems
+# La primera llamada consulta el origen. La segunda usa el cache.
+GET {{baseUrl}}/api/search?q=phone
+Accept: application/json
+
+### DETALLE DEL ITEM
+GET {{baseUrl}}/api/show/123
+Accept: application/json
+
+### PERSISTENCIA EN MONGODB ATLAS
+
+#@name CrearComentario
+POST {{baseUrl}}/api/comments
+Content-Type: application/json
+
+{
+    "itemId": "123",
+    "author": "Alexis Fierro",
+    "comment": "Comentario prueba para verificacion de persistencia en MONGODB ATLAS 2026.",
+    "rating": 5
+}
+
+###
+
+# @name ListarComentariosPorItem
+GET {{baseUrl}}/api/show/123
+Accept: application/json
